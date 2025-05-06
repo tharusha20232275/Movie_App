@@ -1,4 +1,4 @@
-// Theme.kt
+
 package com.example.mymovieapp.ui.theme
 
 import androidx.compose.material3.MaterialTheme

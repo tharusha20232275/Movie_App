@@ -12,7 +12,7 @@ class MovieRepository(private val dao: MovieDao) {
     suspend fun getAllLocal() = dao.getAll()
     suspend fun findByActor(query: String) = dao.findByActor(query)
 
-    // Task 3: fetch & map JSON → Movie
+    // Task 3: fetch & map JSON --> Movie
     fun fetchMovie(title: String): Movie? {
         val json = OmdbApiService.fetchMovieByTitle(title)
         if (json.optString("Response") != "True") return null
@@ -42,7 +42,7 @@ class MovieRepository(private val dao: MovieDao) {
     }
 
 
-    // Task 7: search list of titles (first 10)
+    // Task 7: search list of titles
     fun searchTitles(substring: String): List<Movie> {
         val json = OmdbApiService.searchMovies(substring)
         if (json.optString("Response") != "True") return emptyList()

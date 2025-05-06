@@ -67,7 +67,7 @@ dependencies {
     implementation("androidx.room:room-ktx:2.6.1")
     kapt("androidx.room:room-compiler:2.6.1")
 
-    // (Remove Retrofit/Coil if you want strict “no third-party” compliance)
+
 
     // Testing
     testImplementation("junit:junit:4.13.2")
