@@ -18,7 +18,7 @@ class MovieRepository(private val dao: MovieDao) {
         if (json.optString("Response") != "True") return null
         val ratingsArr = json.optJSONArray("Ratings") ?: JSONArray()
         return Movie(
-            imdbID     = json.optString("imdbID"),
+            imdbID      = json.optString("imdbID"),
             title       = json.optString("Title"),
             year        = json.optString("Year"),
             rated       = json.optString("Rated"),
@@ -37,9 +37,10 @@ class MovieRepository(private val dao: MovieDao) {
             imdbRating  = json.optString("imdbRating"),
             imdbVotes   = json.optString("imdbVotes"),
             type        = json.optString("Type"),
-            totalSeasons= json.optString("totalSeasons", null)
+            totalSeasons = if (json.has("totalSeasons")) json.optString("totalSeasons") else null
         )
     }
+
 
     // Task 7: search list of titles (first 10)
     fun searchTitles(substring: String): List<Movie> {
