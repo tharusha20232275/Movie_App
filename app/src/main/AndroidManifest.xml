@@ -1,12 +1,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.mymovieapp">
+    package="com.yourdomain.mymovieapp">
 
     <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:label="MyMovieApp"
         android:theme="@style/Theme.MyMovieApp">
-
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -15,6 +14,5 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-
     </application>
 </manifest>

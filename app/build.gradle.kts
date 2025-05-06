@@ -6,11 +6,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.mymovieapp"
+    namespace = "com.yourdomain.mymovieapp"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.mymovieapp"
+        applicationId = "com.yourdomain.mymovieapp"
         minSdk = 27
         targetSdk = 34
         versionCode = 1
@@ -43,6 +43,12 @@ android {
         kotlinCompilerExtensionVersion = "1.5.10"
     }
 }
+kapt {
+    arguments {
+        arg("room.schemaLocation", "$projectDir/schemas")
+    }
+}
+
 
 dependencies {
     // Core & Compose
@@ -61,13 +67,7 @@ dependencies {
     implementation("androidx.room:room-ktx:2.6.1")
     kapt("androidx.room:room-compiler:2.6.1")
 
-    // Retrofit + Serialization
-    implementation("com.squareup.retrofit2:retrofit:2.9.0")
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3")
-    implementation("com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:0.8.0")
-
-    // Coil
-    implementation("io.coil-kt:coil-compose:2.5.0")
+    // (Remove Retrofit/Coil if you want strict “no third-party” compliance)
 
     // Testing
     testImplementation("junit:junit:4.13.2")

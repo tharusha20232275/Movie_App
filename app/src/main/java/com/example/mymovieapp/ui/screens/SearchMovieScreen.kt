@@ -1,14 +1,15 @@
 package com.yourdomain.mymovieapp.ui.screens
 
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.*
+import androidx.compose.material3.Button
+import androidx.compose.material3.Text
+import androidx.compose.material3.TextField
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.yourdomain.mymovieapp.data.local.model.Movie
 import com.yourdomain.mymovieapp.viewmodel.MovieViewModel
 
-// Task 3 & 4: fetch from OMDb & save
 @Composable
 fun SearchMovieScreen(vm: MovieViewModel) {
     Column(Modifier.padding(16.dp)) {
@@ -24,7 +25,7 @@ fun SearchMovieScreen(vm: MovieViewModel) {
             Spacer(Modifier.width(8.dp))
             Button(onClick = { vm.saveMovie() }) { Text("Save Movie to Database") }
         }
-        vm.error?.let { Text("Error: $it", color = MaterialTheme.colors.error) }
+        vm.error?.let { Text("Error: $it") }
         vm.fetchedMovie?.let { m: Movie ->
             Spacer(Modifier.height(16.dp))
             Text("Title: ${m.title}")
